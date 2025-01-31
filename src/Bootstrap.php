@@ -2,6 +2,7 @@
 
 namespace JosephAjibodu\PhpNoFramework;
 
+use Throwable;
 use Whoops\Handler\PrettyPageHandler;
 use Whoops\Run;
 
@@ -15,11 +16,9 @@ $whoops = new Run;
 if ($environment === 'dev') {
     $whoops->pushHandler(new PrettyPageHandler);
 } else {
-    $whoops->pushHandler(function (\Throwable $e) {
-        error_log("Error: ". $e->getMessage(), $e->getCode());
+    $whoops->pushHandler(function (Throwable $e) {
+        error_log("Error: ". $e->getMessage(), 0);
         echo 'Friendly error page and send an email to the developer';
     });
 }
 $whoops->register();
-
-throw new \Exception('Test exception');

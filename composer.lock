@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "621e8ecc8c68eb7e6a2a4d88efcbc806",
+    "content-hash": "db3ca67403901133b4fb9c62abeeff63",
     "packages": [
         {
             "name": "filp/whoops",
@@ -128,7 +128,719 @@
             "time": "2024-09-11T13:17:53+00:00"
         }
     ],
-    "packages-dev": [],
+    "packages-dev": [
+        {
+            "name": "dealerdirect/phpcodesniffer-composer-installer",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/PHPCSStandards/composer-installer.git",
+                "reference": "4be43904336affa5c2f70744a348312336afd0da"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/PHPCSStandards/composer-installer/zipball/4be43904336affa5c2f70744a348312336afd0da",
+                "reference": "4be43904336affa5c2f70744a348312336afd0da",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^1.0 || ^2.0",
+                "php": ">=5.4",
+                "squizlabs/php_codesniffer": "^2.0 || ^3.1.0 || ^4.0"
+            },
+            "require-dev": {
+                "composer/composer": "*",
+                "ext-json": "*",
+                "ext-zip": "*",
+                "php-parallel-lint/php-parallel-lint": "^1.3.1",
+                "phpcompatibility/php-compatibility": "^9.0",
+                "yoast/phpunit-polyfills": "^1.0"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "class": "PHPCSStandards\\Composer\\Plugin\\Installers\\PHPCodeSniffer\\Plugin"
+            },
+            "autoload": {
+                "psr-4": {
+                    "PHPCSStandards\\Composer\\Plugin\\Installers\\PHPCodeSniffer\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Franck Nijhof",
+                    "email": "franck.nijhof@dealerdirect.com",
+                    "homepage": "http://www.frenck.nl",
+                    "role": "Developer / IT Manager"
+                },
+                {
+                    "name": "Contributors",
+                    "homepage": "https://github.com/PHPCSStandards/composer-installer/graphs/contributors"
+                }
+            ],
+            "description": "PHP_CodeSniffer Standards Composer Installer Plugin",
+            "homepage": "http://www.dealerdirect.com",
+            "keywords": [
+                "PHPCodeSniffer",
+                "PHP_CodeSniffer",
+                "code quality",
+                "codesniffer",
+                "composer",
+                "installer",
+                "phpcbf",
+                "phpcs",
+                "plugin",
+                "qa",
+                "quality",
+                "standard",
+                "standards",
+                "style guide",
+                "stylecheck",
+                "tests"
+            ],
+            "support": {
+                "issues": "https://github.com/PHPCSStandards/composer-installer/issues",
+                "source": "https://github.com/PHPCSStandards/composer-installer"
+            },
+            "time": "2023-01-05T11:28:13+00:00"
+        },
+        {
+            "name": "phpstan/extension-installer",
+            "version": "1.4.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phpstan/extension-installer.git",
+                "reference": "85e90b3942d06b2326fba0403ec24fe912372936"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phpstan/extension-installer/zipball/85e90b3942d06b2326fba0403ec24fe912372936",
+                "reference": "85e90b3942d06b2326fba0403ec24fe912372936",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^2.0",
+                "php": "^7.2 || ^8.0",
+                "phpstan/phpstan": "^1.9.0 || ^2.0"
+            },
+            "require-dev": {
+                "composer/composer": "^2.0",
+                "php-parallel-lint/php-parallel-lint": "^1.2.0",
+                "phpstan/phpstan-strict-rules": "^0.11 || ^0.12 || ^1.0"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "class": "PHPStan\\ExtensionInstaller\\Plugin"
+            },
+            "autoload": {
+                "psr-4": {
+                    "PHPStan\\ExtensionInstaller\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Composer plugin for automatic installation of PHPStan extensions",
+            "keywords": [
+                "dev",
+                "static analysis"
+            ],
+            "support": {
+                "issues": "https://github.com/phpstan/extension-installer/issues",
+                "source": "https://github.com/phpstan/extension-installer/tree/1.4.3"
+            },
+            "time": "2024-09-04T20:21:43+00:00"
+        },
+        {
+            "name": "phpstan/phpdoc-parser",
+            "version": "1.33.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phpstan/phpdoc-parser.git",
+                "reference": "82a311fd3690fb2bf7b64d5c98f912b3dd746140"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phpstan/phpdoc-parser/zipball/82a311fd3690fb2bf7b64d5c98f912b3dd746140",
+                "reference": "82a311fd3690fb2bf7b64d5c98f912b3dd746140",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.2 || ^8.0"
+            },
+            "require-dev": {
+                "doctrine/annotations": "^2.0",
+                "nikic/php-parser": "^4.15",
+                "php-parallel-lint/php-parallel-lint": "^1.2",
+                "phpstan/extension-installer": "^1.0",
+                "phpstan/phpstan": "^1.5",
+                "phpstan/phpstan-phpunit": "^1.1",
+                "phpstan/phpstan-strict-rules": "^1.0",
+                "phpunit/phpunit": "^9.5",
+                "symfony/process": "^5.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "PHPStan\\PhpDocParser\\": [
+                        "src/"
+                    ]
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "PHPDoc parser with support for nullable, intersection and generic types",
+            "support": {
+                "issues": "https://github.com/phpstan/phpdoc-parser/issues",
+                "source": "https://github.com/phpstan/phpdoc-parser/tree/1.33.0"
+            },
+            "time": "2024-10-13T11:25:22+00:00"
+        },
+        {
+            "name": "phpstan/phpstan",
+            "version": "2.1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phpstan/phpstan.git",
+                "reference": "7d08f569e582ade182a375c366cbd896eccadd3a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/7d08f569e582ade182a375c366cbd896eccadd3a",
+                "reference": "7d08f569e582ade182a375c366cbd896eccadd3a",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.4|^8.0"
+            },
+            "conflict": {
+                "phpstan/phpstan-shim": "*"
+            },
+            "bin": [
+                "phpstan",
+                "phpstan.phar"
+            ],
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "bootstrap.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "PHPStan - PHP Static Analysis Tool",
+            "keywords": [
+                "dev",
+                "static analysis"
+            ],
+            "support": {
+                "docs": "https://phpstan.org/user-guide/getting-started",
+                "forum": "https://github.com/phpstan/phpstan/discussions",
+                "issues": "https://github.com/phpstan/phpstan/issues",
+                "security": "https://github.com/phpstan/phpstan/security/policy",
+                "source": "https://github.com/phpstan/phpstan-src"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/ondrejmirtes",
+                    "type": "github"
+                },
+                {
+                    "url": "https://github.com/phpstan",
+                    "type": "github"
+                }
+            ],
+            "time": "2025-01-21T14:54:06+00:00"
+        },
+        {
+            "name": "phpstan/phpstan-strict-rules",
+            "version": "2.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phpstan/phpstan-strict-rules.git",
+                "reference": "8b88b5f818bfa301e0c99154ab622dace071c3ba"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phpstan/phpstan-strict-rules/zipball/8b88b5f818bfa301e0c99154ab622dace071c3ba",
+                "reference": "8b88b5f818bfa301e0c99154ab622dace071c3ba",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.4 || ^8.0",
+                "phpstan/phpstan": "^2.0.4"
+            },
+            "require-dev": {
+                "php-parallel-lint/php-parallel-lint": "^1.2",
+                "phpstan/phpstan-deprecation-rules": "^2.0",
+                "phpstan/phpstan-phpunit": "^2.0",
+                "phpunit/phpunit": "^9.6"
+            },
+            "type": "phpstan-extension",
+            "extra": {
+                "phpstan": {
+                    "includes": [
+                        "rules.neon"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "PHPStan\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Extra strict and opinionated rules for PHPStan",
+            "support": {
+                "issues": "https://github.com/phpstan/phpstan-strict-rules/issues",
+                "source": "https://github.com/phpstan/phpstan-strict-rules/tree/2.0.3"
+            },
+            "time": "2025-01-21T10:52:14+00:00"
+        },
+        {
+            "name": "rector/rector",
+            "version": "2.0.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rectorphp/rector.git",
+                "reference": "e70d681f6a0c361a63e6825897cd97746436f015"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rectorphp/rector/zipball/e70d681f6a0c361a63e6825897cd97746436f015",
+                "reference": "e70d681f6a0c361a63e6825897cd97746436f015",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.4|^8.0",
+                "phpstan/phpstan": "^2.1.1"
+            },
+            "conflict": {
+                "rector/rector-doctrine": "*",
+                "rector/rector-downgrade-php": "*",
+                "rector/rector-phpunit": "*",
+                "rector/rector-symfony": "*"
+            },
+            "suggest": {
+                "ext-dom": "To manipulate phpunit.xml via the custom-rule command"
+            },
+            "bin": [
+                "bin/rector"
+            ],
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "bootstrap.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Instant Upgrade and Automated Refactoring of any PHP code",
+            "keywords": [
+                "automation",
+                "dev",
+                "migration",
+                "refactoring"
+            ],
+            "support": {
+                "issues": "https://github.com/rectorphp/rector/issues",
+                "source": "https://github.com/rectorphp/rector/tree/2.0.7"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/tomasvotruba",
+                    "type": "github"
+                }
+            ],
+            "time": "2025-01-19T09:41:28+00:00"
+        },
+        {
+            "name": "slevomat/coding-standard",
+            "version": "8.15.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/slevomat/coding-standard.git",
+                "reference": "7d1d957421618a3803b593ec31ace470177d7817"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/slevomat/coding-standard/zipball/7d1d957421618a3803b593ec31ace470177d7817",
+                "reference": "7d1d957421618a3803b593ec31ace470177d7817",
+                "shasum": ""
+            },
+            "require": {
+                "dealerdirect/phpcodesniffer-composer-installer": "^0.6.2 || ^0.7 || ^1.0",
+                "php": "^7.2 || ^8.0",
+                "phpstan/phpdoc-parser": "^1.23.1",
+                "squizlabs/php_codesniffer": "^3.9.0"
+            },
+            "require-dev": {
+                "phing/phing": "2.17.4",
+                "php-parallel-lint/php-parallel-lint": "1.3.2",
+                "phpstan/phpstan": "1.10.60",
+                "phpstan/phpstan-deprecation-rules": "1.1.4",
+                "phpstan/phpstan-phpunit": "1.3.16",
+                "phpstan/phpstan-strict-rules": "1.5.2",
+                "phpunit/phpunit": "8.5.21|9.6.8|10.5.11"
+            },
+            "type": "phpcodesniffer-standard",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "8.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "SlevomatCodingStandard\\": "SlevomatCodingStandard/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Slevomat Coding Standard for PHP_CodeSniffer complements Consistence Coding Standard by providing sniffs with additional checks.",
+            "keywords": [
+                "dev",
+                "phpcs"
+            ],
+            "support": {
+                "issues": "https://github.com/slevomat/coding-standard/issues",
+                "source": "https://github.com/slevomat/coding-standard/tree/8.15.0"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/kukulich",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/slevomat/coding-standard",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2024-03-09T15:20:58+00:00"
+        },
+        {
+            "name": "squizlabs/php_codesniffer",
+            "version": "3.11.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/PHPCSStandards/PHP_CodeSniffer.git",
+                "reference": "ba05f990e79cbe69b9f35c8c1ac8dca7eecc3a10"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/PHPCSStandards/PHP_CodeSniffer/zipball/ba05f990e79cbe69b9f35c8c1ac8dca7eecc3a10",
+                "reference": "ba05f990e79cbe69b9f35c8c1ac8dca7eecc3a10",
+                "shasum": ""
+            },
+            "require": {
+                "ext-simplexml": "*",
+                "ext-tokenizer": "*",
+                "ext-xmlwriter": "*",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.0 || ^5.0 || ^6.0 || ^7.0 || ^8.0 || ^9.3.4"
+            },
+            "bin": [
+                "bin/phpcbf",
+                "bin/phpcs"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.x-dev"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Greg Sherwood",
+                    "role": "Former lead"
+                },
+                {
+                    "name": "Juliette Reinders Folmer",
+                    "role": "Current lead"
+                },
+                {
+                    "name": "Contributors",
+                    "homepage": "https://github.com/PHPCSStandards/PHP_CodeSniffer/graphs/contributors"
+                }
+            ],
+            "description": "PHP_CodeSniffer tokenizes PHP, JavaScript and CSS files and detects violations of a defined set of coding standards.",
+            "homepage": "https://github.com/PHPCSStandards/PHP_CodeSniffer",
+            "keywords": [
+                "phpcs",
+                "standards",
+                "static analysis"
+            ],
+            "support": {
+                "issues": "https://github.com/PHPCSStandards/PHP_CodeSniffer/issues",
+                "security": "https://github.com/PHPCSStandards/PHP_CodeSniffer/security/policy",
+                "source": "https://github.com/PHPCSStandards/PHP_CodeSniffer",
+                "wiki": "https://github.com/PHPCSStandards/PHP_CodeSniffer/wiki"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/PHPCSStandards",
+                    "type": "github"
+                },
+                {
+                    "url": "https://github.com/jrfnl",
+                    "type": "github"
+                },
+                {
+                    "url": "https://opencollective.com/php_codesniffer",
+                    "type": "open_collective"
+                },
+                {
+                    "url": "https://thanks.dev/phpcsstandards",
+                    "type": "thanks_dev"
+                }
+            ],
+            "time": "2025-01-23T17:04:15+00:00"
+        },
+        {
+            "name": "symfony/polyfill-mbstring",
+            "version": "v1.31.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/polyfill-mbstring.git",
+                "reference": "85181ba99b2345b0ef10ce42ecac37612d9fd341"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/85181ba99b2345b0ef10ce42ecac37612d9fd341",
+                "reference": "85181ba99b2345b0ef10ce42ecac37612d9fd341",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.2"
+            },
+            "provide": {
+                "ext-mbstring": "*"
+            },
+            "suggest": {
+                "ext-mbstring": "For best performance"
+            },
+            "type": "library",
+            "extra": {
+                "thanks": {
+                    "url": "https://github.com/symfony/polyfill",
+                    "name": "symfony/polyfill"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "bootstrap.php"
+                ],
+                "psr-4": {
+                    "Symfony\\Polyfill\\Mbstring\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony polyfill for the Mbstring extension",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "compatibility",
+                "mbstring",
+                "polyfill",
+                "portable",
+                "shim"
+            ],
+            "support": {
+                "source": "https://github.com/symfony/polyfill-mbstring/tree/v1.31.0"
+            },
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2024-09-09T11:45:10+00:00"
+        },
+        {
+            "name": "symfony/var-dumper",
+            "version": "v7.2.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/var-dumper.git",
+                "reference": "82b478c69745d8878eb60f9a049a4d584996f73a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/82b478c69745d8878eb60f9a049a4d584996f73a",
+                "reference": "82b478c69745d8878eb60f9a049a4d584996f73a",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.2",
+                "symfony/polyfill-mbstring": "~1.0"
+            },
+            "conflict": {
+                "symfony/console": "<6.4"
+            },
+            "require-dev": {
+                "ext-iconv": "*",
+                "symfony/console": "^6.4|^7.0",
+                "symfony/http-kernel": "^6.4|^7.0",
+                "symfony/process": "^6.4|^7.0",
+                "symfony/uid": "^6.4|^7.0",
+                "twig/twig": "^3.12"
+            },
+            "bin": [
+                "Resources/bin/var-dump-server"
+            ],
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "Resources/functions/dump.php"
+                ],
+                "psr-4": {
+                    "Symfony\\Component\\VarDumper\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Provides mechanisms for walking through any arbitrary PHP variable",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "debug",
+                "dump"
+            ],
+            "support": {
+                "source": "https://github.com/symfony/var-dumper/tree/v7.2.3"
+            },
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2025-01-17T11:39:41+00:00"
+        },
+        {
+            "name": "symplify/easy-coding-standard",
+            "version": "12.5.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/easy-coding-standard/easy-coding-standard.git",
+                "reference": "3e13f048a504049fd0c43f4bd82b94247d4b9409"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/easy-coding-standard/easy-coding-standard/zipball/3e13f048a504049fd0c43f4bd82b94247d4b9409",
+                "reference": "3e13f048a504049fd0c43f4bd82b94247d4b9409",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.2"
+            },
+            "conflict": {
+                "friendsofphp/php-cs-fixer": "<3.46",
+                "phpcsstandards/php_codesniffer": "<3.8",
+                "symplify/coding-standard": "<12.1"
+            },
+            "suggest": {
+                "ext-dom": "Needed to support checkstyle output format in class CheckstyleOutputFormatter"
+            },
+            "bin": [
+                "bin/ecs"
+            ],
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "bootstrap.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Use Coding Standard with 0-knowledge of PHP-CS-Fixer and PHP_CodeSniffer",
+            "keywords": [
+                "Code style",
+                "automation",
+                "fixer",
+                "static analysis"
+            ],
+            "support": {
+                "issues": "https://github.com/easy-coding-standard/easy-coding-standard/issues",
+                "source": "https://github.com/easy-coding-standard/easy-coding-standard/tree/12.5.6"
+            },
+            "funding": [
+                {
+                    "url": "https://www.paypal.me/rectorphp",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/tomasvotruba",
+                    "type": "github"
+                }
+            ],
+            "time": "2025-01-28T15:25:31+00:00"
+        }
+    ],
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {},
