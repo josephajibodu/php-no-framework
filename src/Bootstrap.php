@@ -27,8 +27,35 @@ $whoops->register();
 
 $request = ServerRequestFactory::fromGlobals();
 $response = new Response();
-$response->getBody()->write('Hello, World! ');
-$response->getBody()->write('The URI is: ' . $request->getUri()->getPath());
+
+$routeDefinitionCallback = require __DIR__ . '/../config/routes.php';
+$dispatcher = \FastRoute\simpleDispatcher($routeDefinitionCallback);
+
+$routeInfo = $dispatcher->dispatch(
+    $request->getMethod(),
+    $request->getUri()->getPath(),
+);
+
+switch ($routeInfo[0]) {
+    case \FastRoute\Dispatcher::METHOD_NOT_ALLOWED:
+        $response = (new \Laminas\Diactoros\Response)->withStatus(405);
+        $response->getBody()->write('Method not allowed');
+        $response = $response->withStatus(405);
+        break;
+    case \FastRoute\Dispatcher::FOUND:
+        $handler = $routeInfo[1];
+        foreach ($routeInfo[2] as $attributeName => $attributeValue) {
+            $request = $request->withAttribute($attributeName, $attributeValue);
+        }
+        /** @var \Psr\Http\Message\ResponseInterface $response */
+        $response = call_user_func($handler, $request);
+        break;
+    case \FastRoute\Dispatcher::NOT_FOUND:
+    default:
+        $response = (new \Laminas\Diactoros\Response)->withStatus(404);
+        $response->getBody()->write('Not Found!');
+        break;
+}
 
 foreach ($response->getHeaders() as $name => $values) {
     $first = strtolower($name) !== 'set-cookie';
