@@ -43,12 +43,16 @@ switch ($routeInfo[0]) {
         $response = $response->withStatus(405);
         break;
     case \FastRoute\Dispatcher::FOUND:
-        $handler = $routeInfo[1];
+        $handler = new $routeInfo[1];
+        if (! $handler instanceof \Psr\Http\Server\RequestHandlerInterface) {
+            throw new \Exception('Invalid Requesthandler');
+        }
+        
         foreach ($routeInfo[2] as $attributeName => $attributeValue) {
             $request = $request->withAttribute($attributeName, $attributeValue);
         }
-        /** @var \Psr\Http\Message\ResponseInterface $response */
-        $response = call_user_func($handler, $request);
+        $response = $handler->handle($request);
+        assert($response instanceof \Psr\Http\Message\ResponseInterface);
         break;
     case \FastRoute\Dispatcher::NOT_FOUND:
     default:
