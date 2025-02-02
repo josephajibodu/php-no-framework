@@ -4,23 +4,15 @@ namespace JosephAjibodu\PhpNoFramework\Controllers;
 
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
-use Psr\Http\Server\RequestHandlerInterface;
 
-final class HelloController implements RequestHandlerInterface
+final class HelloController
 {
-    public function __construct(
-        private Response $response
-    ) {}
-    
-    public function handle(Request $request): Response
+    public function __invoke(Response $response, string $name = 'Stranger'): Response
     {
-        $name = $request->getAttribute('name', 'Stranger');
-        $body = $this->response->getBody();
+        $body = $response->getBody();
 
         $body->write('Hello ' . $name . '!');
         
-        return $this->response
-            ->withBody($body)
-            ->withStatus(200);
+        return $response->withBody($body)->withStatus(200);
     }
 }

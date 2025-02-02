@@ -49,13 +49,13 @@ $routeInfo = $dispatcher->dispatch(
 try {
     switch ($routeInfo[0]) {
         case Dispatcher::FOUND:
-            $className = $routeInfo[1];
-            $handler = $container->get($className);
-            assert($handler instanceof RequestHandlerInterface);
+            $handler = $routeInfo[1];
+            $args = $routeInfo[2];
             foreach ($routeInfo[2] as $attributeName => $attributeValue) {
                 $request = $request->withAttribute($attributeName, $attributeValue);
             }
-            $response = $handler->handle($request);
+            $args['request'] = $request;
+            $response = $container->call($handler, $args);
             break;
         case Dispatcher::METHOD_NOT_ALLOWED:
             throw new MethodNotAllowedException;
