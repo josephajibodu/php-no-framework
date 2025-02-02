@@ -3,10 +3,12 @@
 namespace JosephAjibodu\PhpNoFramework;
 
 use FastRoute\Dispatcher;
+use Invoker\InvokerInterface;
 use JosephAjibodu\PhpNoFramework\Exceptions\InternalServerErrorException;
 use JosephAjibodu\PhpNoFramework\Exceptions\MethodNotAllowedException;
 use JosephAjibodu\PhpNoFramework\Exceptions\NotFoundException;
 use Laminas\Diactoros\Response;
+use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 use Throwable;
 use Whoops\Handler\PrettyPageHandler;
@@ -50,12 +52,18 @@ try {
     switch ($routeInfo[0]) {
         case Dispatcher::FOUND:
             $handler = $routeInfo[1];
-            $args = $routeInfo[2];
+            $args = $routeInfo[2] ?? [];
             foreach ($routeInfo[2] as $attributeName => $attributeValue) {
                 $request = $request->withAttribute($attributeName, $attributeValue);
             }
             $args['request'] = $request;
-            $response = $container->call($handler, $args);
+            
+            $invoker = $container->get(InvokerInterface::class);
+            assert($invoker instanceof InvokerInterface);
+
+            $response = $invoker->call($handler, $args);
+            assert($response instanceof ResponseInterface);
+            
             break;
         case Dispatcher::METHOD_NOT_ALLOWED:
             throw new MethodNotAllowedException;
