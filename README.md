@@ -11,3 +11,10 @@ Valuable book: [professional-php](https://patricklouys.com/professional-php/)
 - Git
 - Composer
 - Namespaces
+- Interfaces
+- Traits
+- PHP-FIG
+- Exceptions
+- SOLID principles
+- Inversion of Controller
+- Dependency Injection
