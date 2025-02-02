@@ -1,7 +1,85 @@
 parameters:
 	ignoreErrors:
 		-
+			message: '#^Access to constant FOUND on an unknown class JosephAjibodu\\PhpNoFramework\\Dispatcher\.$#'
+			identifier: class.notFound
+			count: 1
+			path: src/Bootstrap.php
+
+		-
+			message: '#^Access to constant METHOD_NOT_ALLOWED on an unknown class JosephAjibodu\\PhpNoFramework\\Dispatcher\.$#'
+			identifier: class.notFound
+			count: 1
+			path: src/Bootstrap.php
+
+		-
+			message: '#^Access to constant NOT_FOUND on an unknown class JosephAjibodu\\PhpNoFramework\\Dispatcher\.$#'
+			identifier: class.notFound
+			count: 1
+			path: src/Bootstrap.php
+
+		-
+			message: '#^Call to method handle\(\) on an unknown class JosephAjibodu\\PhpNoFramework\\RequestHandlerInterface\.$#'
+			identifier: class.notFound
+			count: 1
+			path: src/Bootstrap.php
+
+		-
+			message: '#^Caught class JosephAjibodu\\PhpNoFramework\\MethodNotAllowed not found\.$#'
+			identifier: class.notFound
+			count: 1
+			path: src/Bootstrap.php
+
+		-
+			message: '#^Caught class JosephAjibodu\\PhpNoFramework\\NotFound not found\.$#'
+			identifier: class.notFound
+			count: 1
+			path: src/Bootstrap.php
+
+		-
+			message: '#^Class JosephAjibodu\\PhpNoFramework\\RequestHandlerInterface not found\.$#'
+			identifier: class.notFound
+			count: 1
+			path: src/Bootstrap.php
+
+		-
+			message: '#^Instantiated class JosephAjibodu\\PhpNoFramework\\InternalServerError not found\.$#'
+			identifier: class.notFound
+			count: 1
+			path: src/Bootstrap.php
+
+		-
+			message: '#^Instantiated class JosephAjibodu\\PhpNoFramework\\MethodNotAllowed not found\.$#'
+			identifier: class.notFound
+			count: 1
+			path: src/Bootstrap.php
+
+		-
+			message: '#^Instantiated class JosephAjibodu\\PhpNoFramework\\NotFound not found\.$#'
+			identifier: class.notFound
+			count: 1
+			path: src/Bootstrap.php
+
+		-
 			message: '#^Short ternary operator is not allowed\. Use null coalesce operator if applicable or consider using long ternary\.$#'
 			identifier: ternary.shortNotAllowed
+			count: 1
+			path: src/Bootstrap.php
+
+		-
+			message: '#^Throwing object of an unknown class JosephAjibodu\\PhpNoFramework\\InternalServerError\.$#'
+			identifier: class.notFound
+			count: 1
+			path: src/Bootstrap.php
+
+		-
+			message: '#^Throwing object of an unknown class JosephAjibodu\\PhpNoFramework\\MethodNotAllowed\.$#'
+			identifier: class.notFound
+			count: 1
+			path: src/Bootstrap.php
+
+		-
+			message: '#^Throwing object of an unknown class JosephAjibodu\\PhpNoFramework\\NotFound\.$#'
+			identifier: class.notFound
 			count: 1
 			path: src/Bootstrap.php

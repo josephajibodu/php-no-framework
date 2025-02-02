@@ -36,29 +36,32 @@ $routeInfo = $dispatcher->dispatch(
     $request->getUri()->getPath(),
 );
 
-switch ($routeInfo[0]) {
-    case \FastRoute\Dispatcher::METHOD_NOT_ALLOWED:
-        $response = (new \Laminas\Diactoros\Response)->withStatus(405);
-        $response->getBody()->write('Method not allowed');
-        $response = $response->withStatus(405);
-        break;
-    case \FastRoute\Dispatcher::FOUND:
-        $handler = new $routeInfo[1];
-        if (! $handler instanceof \Psr\Http\Server\RequestHandlerInterface) {
-            throw new \Exception('Invalid Requesthandler');
-        }
-        
-        foreach ($routeInfo[2] as $attributeName => $attributeValue) {
-            $request = $request->withAttribute($attributeName, $attributeValue);
-        }
-        $response = $handler->handle($request);
-        assert($response instanceof \Psr\Http\Message\ResponseInterface);
-        break;
-    case \FastRoute\Dispatcher::NOT_FOUND:
-    default:
-        $response = (new \Laminas\Diactoros\Response)->withStatus(404);
-        $response->getBody()->write('Not Found!');
-        break;
+try {
+    switch ($routeInfo[0]) {
+        case Dispatcher::FOUND:
+            $className = $routeInfo[1];
+            $handler = new $className;
+            assert($handler instanceof RequestHandlerInterface);
+            foreach ($routeInfo[2] as $attributeName => $attributeValue) {
+                $request = $request->withAttribute($attributeName, $attributeValue);
+            }
+            $response = $handler->handle($request);
+            break;
+        case Dispatcher::METHOD_NOT_ALLOWED:
+            throw new MethodNotAllowed;
+
+        case Dispatcher::NOT_FOUND:
+        default:
+            throw new NotFound;
+    }
+} catch (MethodNotAllowed) {
+    $response = (new Response)->withStatus(405);
+    $response->getBody()->write('Not Allowed');
+} catch (NotFound) {
+    $response = (new Response)->withStatus(404);
+    $response->getBody()->write('Not Found');
+} catch (Throwable $t) {
+    throw new InternalServerError($t->getMessage(), $t->getCode(), $t);
 }
 
 foreach ($response->getHeaders() as $name => $values) {
