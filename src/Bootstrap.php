@@ -7,7 +7,6 @@ use JosephAjibodu\PhpNoFramework\Exceptions\InternalServerErrorException;
 use JosephAjibodu\PhpNoFramework\Exceptions\MethodNotAllowedException;
 use JosephAjibodu\PhpNoFramework\Exceptions\NotFoundException;
 use Laminas\Diactoros\Response;
-use Laminas\Diactoros\ServerRequestFactory;
 use Psr\Http\Server\RequestHandlerInterface;
 use Throwable;
 use Whoops\Handler\PrettyPageHandler;
@@ -30,8 +29,14 @@ if ($environment === 'dev') {
 }
 $whoops->register();
 
-$request = ServerRequestFactory::fromGlobals();
-$response = new Response();
+$container = require __DIR__ . '/../config/container.php';
+assert($container instanceof \Psr\Container\ContainerInterface);
+
+$request = $container->get(\Psr\Http\Message\ServerRequestInterface::class);
+assert($request instanceof \Psr\Http\Message\ServerRequestInterface);
+
+$dispatcher = $container->get(Dispatcher::class);
+assert($dispatcher instanceof Dispatcher);
 
 $routeDefinitionCallback = require __DIR__ . '/../config/routes.php';
 $dispatcher = \FastRoute\simpleDispatcher($routeDefinitionCallback);
@@ -45,7 +50,7 @@ try {
     switch ($routeInfo[0]) {
         case Dispatcher::FOUND:
             $className = $routeInfo[1];
-            $handler = new $className($response);
+            $handler = $container->get($className);
             assert($handler instanceof RequestHandlerInterface);
             foreach ($routeInfo[2] as $attributeName => $attributeValue) {
                 $request = $request->withAttribute($attributeName, $attributeValue);
