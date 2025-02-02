@@ -18,3 +18,14 @@ Valuable book: [professional-php](https://patricklouys.com/professional-php/)
 - SOLID principles
 - Inversion of Controller
 - Dependency Injection
+
+## Notes
+
+For me the most important things that makes developer experience easier are Request Object, Response Object and a Router. The rest are nice additions
+
+We can take inspiration from the ExpressJS Framework
+
+Other can be important to consider:
+
+- Middlewares (its a simple way to make the app extensible)
+- Template Engine
