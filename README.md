@@ -18,6 +18,8 @@ Valuable book: [professional-php](https://patricklouys.com/professional-php/)
 - SOLID principles
 - Inversion of Controller
 - Dependency Injection
+- Interface Segregration Principle
+- Adapter Pattern
 
 ## Notes
 
