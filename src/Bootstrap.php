@@ -2,8 +2,13 @@
 
 namespace JosephAjibodu\PhpNoFramework;
 
+use FastRoute\Dispatcher;
+use JosephAjibodu\PhpNoFramework\Exceptions\InternalServerErrorException;
+use JosephAjibodu\PhpNoFramework\Exceptions\MethodNotAllowedException;
+use JosephAjibodu\PhpNoFramework\Exceptions\NotFoundException;
 use Laminas\Diactoros\Response;
 use Laminas\Diactoros\ServerRequestFactory;
+use Psr\Http\Server\RequestHandlerInterface;
 use Throwable;
 use Whoops\Handler\PrettyPageHandler;
 use Whoops\Run;
@@ -40,7 +45,7 @@ try {
     switch ($routeInfo[0]) {
         case Dispatcher::FOUND:
             $className = $routeInfo[1];
-            $handler = new $className;
+            $handler = new $className($response);
             assert($handler instanceof RequestHandlerInterface);
             foreach ($routeInfo[2] as $attributeName => $attributeValue) {
                 $request = $request->withAttribute($attributeName, $attributeValue);
@@ -48,20 +53,20 @@ try {
             $response = $handler->handle($request);
             break;
         case Dispatcher::METHOD_NOT_ALLOWED:
-            throw new MethodNotAllowed;
+            throw new MethodNotAllowedException;
 
         case Dispatcher::NOT_FOUND:
         default:
-            throw new NotFound;
+            throw new NotFoundException;
     }
-} catch (MethodNotAllowed) {
+} catch (MethodNotAllowedException) {
     $response = (new Response)->withStatus(405);
     $response->getBody()->write('Not Allowed');
-} catch (NotFound) {
+} catch (NotFoundException) {
     $response = (new Response)->withStatus(404);
     $response->getBody()->write('Not Found');
 } catch (Throwable $t) {
-    throw new InternalServerError($t->getMessage(), $t->getCode(), $t);
+    throw new InternalServerErrorException($t->getMessage(), $t->getCode(), $t);
 }
 
 foreach ($response->getHeaders() as $name => $values) {
