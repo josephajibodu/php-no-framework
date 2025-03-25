@@ -3,7 +3,7 @@
 Adapted from this tutorial
 [no-framework-tutorial](https://git.php.fail/lubiana/no-framework-tutorial)
 
-Valuable book: [professional-php](https://patricklouys.com/professional-php/)
+**Valuable book:** [professional-php](https://patricklouys.com/professional-php/)
 
 ## Things the user must know
 
@@ -23,7 +23,7 @@ Valuable book: [professional-php](https://patricklouys.com/professional-php/)
 
 ## Notes
 
-For me the most important things that makes developer experience easier are Request Object, Response Object and a Router. The rest are nice additions
+> For me the most important things that makes developer experience easier are Request Object, Response Object and a Router. The rest are nice additions
 
 We can take inspiration from the ExpressJS Framework
 
